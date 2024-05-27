@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import HeadPhone from "../images/headphone.jpg";
+// import HeadPhone from "../images/tick.png";
+import greenTick from "../images/greenTick.png";
 import spray from "../images/spray2.jpg";
 
 function Index() {
+  const [tick, setTick] = useState(false);
+  console.log("tick", tick);
   const loggedInCart = (
     <>
       <section className="shoppingCartSection">
@@ -118,8 +122,21 @@ function Index() {
                         <div className="additionalBtn">
                           <div className="btn1">
                             <div className="card_btn">
-                              <input type="checkbox" name="" value={"asd"} />
+                              <input
+                                type="checkbox"
+                                name=""
+                                value={tick}
+                                onChange={() => setTick(!tick)}
+                              />
                               <span className="card_btn_txt">sdghfsdhgfjh</span>
+                              {tick ? (
+                                <div
+                                  className="tick"
+                                  onClick={() => setTick(false)}
+                                ></div>
+                              ) : (
+                                ""
+                              )}
                             </div>
 
                             <span className="card_btn_out_txt">
